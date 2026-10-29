@@ -1,0 +1,44 @@
+```python
+# Family Knowledge Representation
+
+# Facts
+parent = [
+    ("Ravi", "Arun"),
+    ("Ravi", "Priya"),
+    ("Arun", "Kumar"),
+    ("Priya", "Meena")
+]
+
+# Rule 1: Find children
+def find_children(name):
+    print("Children of", name, ":")
+    for p, c in parent:
+        if p == name:
+            print(c)
+
+# Rule 2: Find parents
+def find_parent(name):
+    print("Parents of", name, ":")
+    for p, c in parent:
+        if c == name:
+            print(p)
+
+# Rule 3: Find siblings
+def find_siblings(name):
+    print("Siblings of", name, ":")
+    found = False
+
+    for p1, c1 in parent:
+        for p2, c2 in parent:
+            if p1 == p2 and c1 == name and c2 != name:
+                print(c2)
+                found = True
+
+    if not found:
+        print("No siblings found")
+
+# Test the rules
+find_children("Ravi")
+find_parent("Arun")
+find_siblings("Arun")
+```

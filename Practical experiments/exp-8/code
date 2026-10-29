@@ -1,0 +1,41 @@
+# Alpha-Beta Pruning Algorithm
+
+def alphabeta(depth, node, alpha, beta, maximizing):
+    if depth == 2:
+        return scores[node]
+
+    if maximizing:
+        best = -999
+
+        for i in range(2):
+            value = alphabeta(depth + 1, node * 2 + i,
+                              alpha, beta, False)
+            best = max(best, value)
+            alpha = max(alpha, best)
+
+            if beta <= alpha:
+                break
+
+        return best
+
+    else:
+        best = 999
+
+        for i in range(2):
+            value = alphabeta(depth + 1, node * 2 + i,
+                              alpha, beta, True)
+            best = min(best, value)
+            beta = min(beta, best)
+
+            if beta <= alpha:
+                break
+
+        return best
+
+
+scores = [3, 5, 2, 9]
+
+result = alphabeta(0, 0, -999, 999, True)
+
+print("Leaf Scores:", scores)
+print("Optimal Value:", result)

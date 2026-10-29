@@ -1,4 +1,3 @@
-```python
 # Family Knowledge Representation
 
 # Facts
@@ -41,4 +40,3 @@ def find_siblings(name):
 find_children("Ravi")
 find_parent("Arun")
 find_siblings("Arun")
-```

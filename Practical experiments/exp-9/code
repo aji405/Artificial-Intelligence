@@ -1,0 +1,28 @@
+# Water Jug Problem
+
+jug1 = 4
+jug2 = 3
+goal = 2
+
+x = 0
+y = 0
+
+print("Initial State:", (x, y))
+
+while x != goal and y != goal:
+
+    if x == 0:
+        x = jug1
+        print("Fill Jug 1:", (x, y))
+
+    elif y == jug2:
+        y = 0
+        print("Empty Jug 2:", (x, y))
+
+    else:
+        transfer = min(x, jug2 - y)
+        x = x - transfer
+        y = y + transfer
+        print("Pour Jug 1 into Jug 2:", (x, y))
+
+print("Goal Reached:", (x, y))

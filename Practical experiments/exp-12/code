@@ -1,0 +1,29 @@
+# Decision Tree Classifier for Loan Approval
+
+from sklearn.tree import DecisionTreeClassifier
+
+# Customer data: [Income, Credit Score]
+X = [
+    [1, 0],
+    [1, 1],
+    [0, 0],
+    [0, 1],
+    [1, 1],
+    [0, 0]
+]
+
+# 1 = Approved, 0 = Rejected
+y = [0, 1, 0, 1, 1, 0]
+
+# Create and train the model
+model = DecisionTreeClassifier(random_state=0)
+model.fit(X, y)
+
+# Predict loan approval for a new customer
+new_customer = [[1, 1]]
+prediction = model.predict(new_customer)
+
+if prediction[0] == 1:
+    print("Loan Approved")
+else:
+    print("Loan Rejected")

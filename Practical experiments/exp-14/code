@@ -1,0 +1,26 @@
+# Diet Recommendation Expert System
+
+age = int(input("Enter your age: "))
+bmi = float(input("Enter your BMI: "))
+health = input("Enter health condition (normal/diabetes): ").lower()
+
+print("\nRecommended Diet Plan:")
+
+if age < 18:
+    print("Eat a balanced diet with fruits, vegetables, and protein.")
+
+elif health == "diabetes":
+    print("Eat whole grains, vegetables, and low-sugar foods.")
+    print("Avoid sugary drinks and sweets.")
+
+elif bmi < 18.5:
+    print("Eat nutritious foods, nuts, milk, and protein-rich foods.")
+
+elif bmi < 25:
+    print("Maintain a balanced diet with fruits, vegetables, and grains.")
+
+else:
+    print("Eat vegetables, fruits, whole grains, and lean protein.")
+    print("Limit fried foods and sugary drinks.")
+
+print("Drink enough water and exercise regularly.")

@@ -1,0 +1,44 @@
+# A* Search Algorithm
+
+graph = {
+    'A': {'B': 1, 'C': 4},
+    'B': {'D': 2, 'E': 5},
+    'C': {'E': 1},
+    'D': {'G': 5},
+    'E': {'G': 3},
+    'G': {}
+}
+
+# Estimated distance to the goal
+h = {
+    'A': 7,
+    'B': 6,
+    'C': 4,
+    'D': 4,
+    'E': 3,
+    'G': 0
+}
+
+start = 'A'
+goal = 'G'
+
+open_list = [(start, 0, [start])]
+visited = set()
+
+while open_list:
+    open_list.sort(key=lambda x: x[1] + h[x[0]])
+    node, cost, path = open_list.pop(0)
+
+    if node == goal:
+        print("Optimal Path:", " -> ".join(path))
+        print("Total Path Cost:", cost)
+        break
+
+    if node not in visited:
+        visited.add(node)
+
+        for neighbor, distance in graph[node].items():
+            if neighbor not in visited:
+                open_list.append(
+                    (neighbor, cost + distance, path + [neighbor])
+                )

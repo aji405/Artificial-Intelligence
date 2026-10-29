@@ -1,0 +1,46 @@
+# Artificial Neural Network for Disease Prediction
+
+from sklearn.neural_network import MLPClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Medical data: [Age, Blood Pressure, Sugar Level]
+X = [
+    [25, 110, 90],
+    [30, 120, 100],
+    [45, 140, 160],
+    [50, 150, 180],
+    [35, 130, 140],
+    [60, 160, 200],
+    [28, 115, 95],
+    [55, 155, 190]
+]
+
+# 0 = No Disease, 1 = Disease
+y = [0, 0, 1, 1, 0, 1, 0, 1]
+
+# Split data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, random_state=1
+)
+
+# Create and train the ANN model
+model = MLPClassifier(hidden_layer_sizes=(5,), max_iter=2000,
+                      random_state=1)
+model.fit(X_train, y_train)
+
+# Test the model
+y_pred = model.predict(X_test)
+
+print("Actual Values:", y_test)
+print("Predicted Values:", y_pred)
+print("Accuracy:", accuracy_score(y_test, y_pred))
+
+# Predict for a new patient
+patient = [[40, 135, 150]]
+result = model.predict(patient)
+
+if result[0] == 1:
+    print("Disease Predicted")
+else:
+    print("No Disease Predicted")

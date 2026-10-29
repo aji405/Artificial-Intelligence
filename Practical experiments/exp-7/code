@@ -1,0 +1,30 @@
+# Minimax Algorithm
+
+def minimax(depth, node, maximizing):
+    if depth == 2:
+        return scores[node]
+
+    if maximizing:
+        return max(
+            minimax(depth + 1, node * 2, False),
+            minimax(depth + 1, node * 2 + 1, False)
+        )
+    else:
+        return min(
+            minimax(depth + 1, node * 2, True),
+            minimax(depth + 1, node * 2 + 1, True)
+        )
+
+scores = [3, 5, 2, 9]
+
+print("Leaf Scores:", scores)
+
+left = min(scores[0], scores[1])
+right = min(scores[2], scores[3])
+
+best_move = max(left, right)
+
+print("Left Move Value:", left)
+print("Right Move Value:", right)
+print("Optimal Move:", "Left" if left > right else "Right")
+print("Optimal Value:", best_move)

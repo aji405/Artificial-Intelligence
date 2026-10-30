@@ -1,0 +1,21 @@
+class Bird:
+    def fly(self):
+        print("Birds can fly")
+
+class Parrot(Bird):
+    pass
+
+class Penguin(Bird):
+    def fly(self):
+        print("Penguins cannot fly")
+
+# Create objects
+parrot = Parrot()
+penguin = Penguin()
+
+# Display results
+print("Parrot:")
+parrot.fly()
+
+print("Penguin:")
+penguin.fly()

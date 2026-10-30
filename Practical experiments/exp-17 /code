@@ -1,0 +1,14 @@
+# Medical Expert System
+
+fever = input("Do you have fever? (yes/no): ")
+cough = input("Do you have cough? (yes/no): ")
+sneezing = input("Do you have sneezing? (yes/no): ")
+
+if fever == "yes" and cough == "yes":
+    print("Possible disease: Flu")
+elif sneezing == "yes" and fever == "no":
+    print("Possible disease: Common Cold")
+else:
+    print("Disease cannot be identified")
+
+print("Please consult a doctor.")

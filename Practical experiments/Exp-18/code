@@ -1,0 +1,12 @@
+color = input("Enter fruit color: ").lower()
+
+if color == "red":
+    print("Fruit is Apple")
+elif color == "yellow":
+    print("Fruit is Banana")
+elif color == "orange":
+    print("Fruit is Orange")
+elif color == "green":
+    print("Fruit is Green Apple")
+else:
+    print("Fruit not identified")
